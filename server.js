@@ -7,8 +7,6 @@ const cors = require("cors")
 const app = express()
 const {PORT=7777} = process.env
 
-//arewethereyet?
-
 // TEST ROUTE
 app.get("/", (req, res) => res.send("hello world"))
 
