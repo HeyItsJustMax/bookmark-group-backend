@@ -91,5 +91,15 @@ app.put("/bookmark/:id", async (req, res) => {
     }
 })
 
+//  Destroy route - delete request to /bookmark/:id
+//  Delete a specific bookmark
+app.delete("/bookmark/:id", async (req, res) => {
+    try {
+        res.json(await Bookmark.findByIdAndRemove(req.params.id))
+    } catch (error) {
+        res.status(400).json({error})
+    }
+})
+
 // LISTENER
 app.listen(PORT, () => console.log(`port running on ${PORT}`))
