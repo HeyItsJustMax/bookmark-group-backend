@@ -79,5 +79,17 @@ app.post("/bookmark", async (req, res) => {
     }
 })
 
+//  Update route - put request to /bookmark/:id
+//  Updates a specified bookmark
+app.put("/bookmark/:id", async (req, res) => {
+    try {
+        res.json(
+            await Bookmark.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        )
+    } catch (error){
+        res.status(400).json({error})
+    }
+})
+
 // LISTENER
 app.listen(PORT, () => console.log(`port running on ${PORT}`))
