@@ -67,5 +67,17 @@ app.get("/bookmark", async (req, res) => {
     }
 })
 
+//  Create Route - Post request to /bookmark
+//  Create a person from json body
+app.post("/bookmark", async (req, res) => {
+    try{
+        //  Creates a new bookmark
+        res.json(await Bookmark.create(req.body))
+    } catch (error){
+        //  Send error message
+        res.status(400).json({error})
+    }
+})
+
 // LISTENER
 app.listen(PORT, () => console.log(`port running on ${PORT}`))
