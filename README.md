@@ -11,6 +11,8 @@
 - React
 - Node.js
 - MongoDB
+- Postman
+- Github
 - HTML, CSS, Javascript
 
 # Stretch Goals
