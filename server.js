@@ -13,6 +13,8 @@ const morgan = require("morgan")
 const cors = require("cors")
 //  Creates the app object
 const app = express()
+//  Allows forms to work properly with delete and put requests
+const methodOverride = require("method-override")
 //  Pull PORT vairable from .env file
 const {PORT=7777, MONGODB_URL} = process.env
 
@@ -49,6 +51,10 @@ app.use(cors())
 app.use(morgan('dev'))
 //  Parse JSON bodies
 app.use(express.json())
+//  Form requests put and delete
+app.use(methodOverride("_method"))
+//  Parse urlencoded request
+app.use(express.urlencoded({ extended: true }))
 
 /////////////////////////
 //  Routes and Routers
